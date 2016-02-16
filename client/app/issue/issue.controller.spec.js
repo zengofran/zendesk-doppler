@@ -7,7 +7,7 @@ describe('Controller: IssueController', function() {
   beforeEach(module('stateMock'));
 
   var scope;
-  var MainController;
+  var IssueController;
   var state;
   var $httpBackend;
 

@@ -7,9 +7,9 @@
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="version in versionCtrl.versions | filter:searchText">
 
       	<li>
-      	 <div class="bs-callout bs-callout-success">
-		  <h4><a href="/version/100" tooltip="{{version.version}}">{{version.version}}</a></h4>
-		  This is a default callout.
+      	 <div class="bs-callout ">
+		  <h4><a href="/version/{{version.version}}" tooltip="{{version.version}}">{{version.version}}</a></h4>
+		  Number of tickets {{version.num_of_tickets}}
 		 </div>
 	    </li>
 

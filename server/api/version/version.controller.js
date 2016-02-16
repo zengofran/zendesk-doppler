@@ -4,27 +4,22 @@
  */
 
 'use strict';
-
+var requestify = require('requestify');
 
 
 /**
  * Get list of versions
  */
 exports.index = function(req, res) {
-  res.json([
-	{
-	    "versions": [
-	        {
-	            "version": "1.5.4.1",
-	            "num_of_tickets": 12,
-	        },
-	        {
-	            "version": "1.5.4.4",
-	            "num_of_tickets": 10,
-	        }
-	    ]
-	  }
-  	]);
+
+ requestify.get('https://zendesk-doppler-dev.herokuapp.com/api/v1/versions').then(function(response) {
+	// Get the response body
+
+	 res.json(response.getBody());
+
+ });
+
+
 };
 
 
@@ -33,19 +28,11 @@ exports.index = function(req, res) {
  */
 exports.show = function (req, res, next) {
 
+	requestify.get('https://zendesk-doppler-dev.herokuapp.com/api/v1/versions/'+req.params.id).then(function(response) {
+		// Get the response body
 
-  res.json([
-	{
-    "time_stamp": 14563,
-    "version": "1.5.4.1"+ req.params.id,
-    "tickets": [
-        {
-            "title": "Title",
-            "status": "Open",
-            "id": 123,
+		 res.json(response.getBody());
 
-        }
-    ]
-	}
-  	]);
+	 });
+
 };

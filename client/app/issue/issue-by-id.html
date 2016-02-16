@@ -1,8 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Issue: {{issueCtrl.id}}</h1>
-      {{issueCtrl.issue.requester.name}}
-    </div>
+
+    <div class="panel panel-default" ng-class="issueCtrl.issue.className">
+	  <div class="panel-heading">
+	  	<div class="row">
+	  	 <div class="col-md-10">
+		  	<h3 class="panel-title" style="margin:  auto 0px;"><a href="{{issueCtrl.issue.source_url}}"> {{issueCtrl.issue.title}} ( {{issueCtrl.issue.version}} )</a></h3>
+		  </div>
+		  <div class="col-md-2">
+		  	<h3 style="margin:  auto 0px;"><span class="label label-default pull-right" ng-class="issueCtrl.issue.statusClass">{{issueCtrl.issue.statusName}}</span></h3>
+		  </div>
+
+		</div>
+	  </div>
+	  <div class="panel-body">
+
+		<div class="row">
+		  <div class="col-md-10">
+		  	{{issueCtrl.issue.description}}
+		  </div>
+		  <div class="col-md-2">
+
+		    <img class="media-object" style="width: 64px; height: 64px;" src="{{issueCtrl.issue.requester.avatar_url}}" alt="...">
+		    {{issueCtrl.issue.requester.name}}
+		 </div>
+		</div>
+
+		<div class="row">
+		  <div class="col-md-10">
+		  	<h4 class="page-header">Status History:</h4>
+		  	<div class="list-group" ng-repeat="history in issueCtrl.issue.history">
+
+              <a href="#" class="list-group-item">
+              	{{history.status}}
+              	<span class="pull-right">{{history.created_at | date }}</span></a>
+
+            </div>
+
+		  </div>
+
+		</div>
+
+
+	</div>
+	</div>
   </div>
 </div>
