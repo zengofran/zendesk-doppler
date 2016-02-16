@@ -31,8 +31,8 @@
 		  	<h4 class="page-header">Status History:</h4>
 		  	<div class="list-group" ng-repeat="history in issueCtrl.issue.history">
 
-              <a href="#" class="list-group-item">
-              	{{history.status}}
+              <a href="#" style="text-transform: capitalize;" class="list-group-item">
+              	<span class="label label-default" ng-class="history.statusClass">{{history.statusName}}</span>
               	<span class="pull-right">{{history.created_at | date }}</span></a>
 
             </div>

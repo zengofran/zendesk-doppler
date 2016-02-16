@@ -47,15 +47,55 @@
                   this.issue.statusName = "Done";
         }
 
+        var historyArr=[];
+        for (var i = this.issue.history.length - 1; i >= 0; i--) {
+          var item = this.issue.history[i]
+          var status= item.status;
+        if(status === "new"){
+          item.statusClass = "label-danger";
+          item.statusName = "New";
+        }
+        else
+        if(status === "planned"){
+
+            item.statusClass = "label-warning";
+            item.statusName = "Planned";
+        }
+        else
+        if(status === "in_progress"){
+
+              item.statusClass = "label-warning";
+              item.statusName = "In Progress";
+        }
+        else
+        if(status === "shipped"){
+
+                item.statusClass = "label-success";
+                item.statusName = "Shipped";
+        }
+        else
+          if(status === "done"){
+                item.statusClass = "label-info";
+                item.statusName = "Done";
+        }
+        historyArr[i]=item
+
+        };
+        this.issue.history=historyArr;
       });
       }
       else{
        $http.get('/api/issues').then(response => {
          this.issues = response.data;
+
        });
 
      }
    }
+   getStatus(status){
+
+   }
+
  }
 
  angular.module('zendeskDopplerApp')
