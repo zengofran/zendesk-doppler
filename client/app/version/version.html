@@ -1,0 +1,20 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Versions:</h1><input ng-model="searchText">      <br/>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="version in versionCtrl.versions | filter:searchText">
+
+      	<li>
+      	 <div class="bs-callout bs-callout-success">
+		  <h4><a href="/version/100" tooltip="{{version.version}}">{{version.version}}</a></h4>
+		  This is a default callout.
+		 </div>
+	    </li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>

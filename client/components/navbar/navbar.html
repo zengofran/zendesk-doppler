@@ -1,0 +1,22 @@
+<div class="navbar zen-nav navbar-static-top" ng-controller="NavbarController">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div collapse="nav.isCollapsed" class="navbar-collapse  zen-nav collapse" id="navbar-main">
+      <ul class="nav navbar-nav zen-navbar-nav">
+        <li ng-repeat="item in nav.menu" ui-sref-active="active">
+            <a ui-sref="{{item.state}}">{{item.title}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
